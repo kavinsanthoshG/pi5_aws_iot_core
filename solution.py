@@ -19,6 +19,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 
 # Set TLS/SSL parameters for AWS IoT Core connection
+#Path to your File
 client.tls_set(
     ca_certs='./rootCA.pem',
     certfile='./0f0dd4e9bc25711c72adaf1bdaa45913e3339518069acd2d8188d2a7f0cc6f8b-certificate.pem.crt',
@@ -28,7 +29,7 @@ client.tls_set(
 client.tls_insecure_set(True)
 
 # Connect to AWS IoT Core
-client.connect("a2mw53bi6cb29m-ats.iot.us-east-1.amazonaws.com", 8883, 60)
+client.connect("YOUR ENDPOINT", 8883, 60)
 
 # Function to detect sound and send data to AWS IoT Core
 def send_sound_data():
