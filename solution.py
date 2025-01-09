@@ -2,10 +2,11 @@ import time
 import paho.mqtt.client as mqtt
 import ssl
 from gpiozero import Button
-
+#since the gpizero does not have a class for sound sensor, and by considering that the behaviour of both the button and sound sensor is same,
+# the button is used as a substitution.
 # Set up the sound sensor (using a Button object for simplicity)
 SOUND_SENSOR_PIN = 4  # GPIO pin number (adjust as needed)
-sound_sensor = Button(SOUND_SENSOR_PIN, pull_up=False)  # Button input, active low
+sound_sensor = Button(SOUND_SENSOR_PIN, pull_up=True)
 
 # Define the MQTT callback for successful connection
 def on_connect(client, userdata, flags, rc):
